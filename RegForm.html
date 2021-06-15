@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family:Monospace, Optima, Serif;
+  background: url(ari.jpg);
+   background-size: cover;
+   background-position: center;
+}
+
+* {
+  box-sizing:border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 5px;
+  background: transparent;
+
+}
+
+
+.header{
+  width:35%;
+  height:60px;
+  margin-left:33%;
+  display:black;
+  background-color:#101010;
+
+}
+
+.inner_header{
+   width:1000px;
+   height=100%
+   display:block;
+   margin: 0 auto;
+}
+
+.logo_container{
+   height:100%;
+   display:table;
+   float:left;
+}
+
+.logo_container h1{
+   color:white;
+   height:100%;
+   display:table-cell;
+   vertical-align:center;
+   font-family:'Montserrat';
+   font-size:32x;
+   fomt-weight:200;
+}
+.logo_container h1 span{
+   font-weight:800;
+
+}
+
+
+/* Full-width input fields */
+input[type="text"], input[type="password"] {
+  width: 30%;
+  padding: 10px;
+  margin: 15px 0 15px 0;
+  margin-left:35%;
+  display: inline-block;
+  border: none;
+  background:f1f1f1;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: green;
+  color: white;
+  padding: 10px 10px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+   background: #39dc79;
+    color: #000;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<form action="/action_page.php">
+  <div class="container">
+       </div>
+    <div class="header">
+        <div class="inner_header">
+            <div class="logo_container">
+                <h1><span><center>:GOVERNAMENT OF INDIA:</center></span></h1>
+            </div>
+
+        </div>
+    </div>
+      <h4><center>:भारत गणराज्य:</center></h4>
+  <h1><center><u>BUREAU OF IMMIGRATION</u></center></h1>
+   <h6><center> A BODY OF INDIAN GOVERNAMENT</center></h6>
+    <h2><center>Registration Form</center></h2>
+      <p><b><center>Please Fill In This Form To Create An Account.</center></b></p>
+    <hr>
+
+
+     <form>
+   <center><label for="email"><b>Email</b></label></center>
+    <input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+   <center><label for="psw"><b>Password</b></label></center>
+    <input type="password" name="psw" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must Contain atleast one number,one lowercase letter,one uppercase letter and atleast 8 or more characters" placeholder="Enter Password" required>
+
+    <center><label for="psw-repeat"><b>Repeat Password</b></label></center>
+    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" onfocusout="password_match()" required>
+         <div id="show-result">
+
+         </div>
+         <script src="jquery.js"></script>
+	  <script>
+          function password_match(){
+          var psw=document.getElementById('psw').value;
+          var psw-repeat=document.getElementById('psw-repeat').value;
+          $.post("check.php",{
+          pass1: psw, pass2: psw-repeat
+          },
+           function(data, status){
+             document.getElementById('show-result').innerHTML= data;
+           }
+          }
+      </script>
+	<center><label for="pasnum"><b>Passport Number</b></label></center>
+    <input type="text" placeholder="Passport" name="pasnum" id="pasnum" pattern="{8,}" title="Must Contain 8 characters" required></center>
+
+	<center><label for="visa"><b>Visa Number</b></label></center>
+    <input type="text" placeholder="Enter Visa Number" name="visa" id="visa" required>
+    <hr>
+   <center><p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p></center>
+
+      <center><button type="submit" class="registerbtn">Register</button></center>
+
+  
+  <div class="container signin">
+    <p>Already have an account? <a href="index.html">Sign in</a>.</p>
+  </div>
+</form>
+
+</body>
+</html>
